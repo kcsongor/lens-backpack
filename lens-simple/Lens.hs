@@ -12,3 +12,6 @@ modify (Lens g p) f s = p s (f (g s))
 
 lens :: (s -> a) -> (s -> b -> t) -> Lens s t a b
 lens = Lens
+
+(%) :: Lens s t a b -> Lens a b c d -> Lens s t c d
+(%) (Lens g1 s1) (Lens g2 s2) = Lens (g2 . g1) (\s d -> s1 s (s2 (g1 s) d))

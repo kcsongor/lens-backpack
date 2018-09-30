@@ -7,3 +7,5 @@ view :: Lens s s a a -> s -> a
 modify :: Lens s t a b -> (a -> b) -> s -> t
 
 lens :: (s -> a) -> (s -> b -> t) -> Lens s t a b
+
+(%) :: Lens s t a b -> Lens a b c d -> Lens s t c d

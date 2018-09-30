@@ -14,3 +14,6 @@ modify (Lens l) f s = runIdentity (l (Identity . f) s)
 
 lens :: (s -> a) -> (s -> b -> t) -> Lens s t a b
 lens g p = Lens (\f s -> p s <$> f (g s))
+
+(%) :: Lens s t a b -> Lens a b c d -> Lens s t c d
+(%) = coerce (.)
