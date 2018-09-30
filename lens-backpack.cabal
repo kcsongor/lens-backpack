@@ -1,0 +1,38 @@
+name:                lens-backpack
+version:             0.1.0.0
+-- synopsis:
+-- description:
+license:             BSD3
+license-file:        LICENSE
+author:              Csongor Kiss
+maintainer:          kiss.csongor.kiss@gmail.com
+-- copyright:
+-- category:
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=2.0
+
+library lens-indef
+  build-depends:       base >=4.12 && <4.13
+  hs-source-dirs:      lens-indef
+  signatures:          Lens
+  default-language:    Haskell2010
+
+library lens-vl
+  build-depends:       base
+  exposed-modules:     Lens
+  hs-source-dirs:      lens-vl
+  default-language:    Haskell2010
+
+library lens-simple
+  build-depends:       base
+  exposed-modules:     Lens
+  hs-source-dirs:      lens-simple
+  default-language:    Haskell2010
+
+executable lens-example
+  main-is:             Main.hs
+  build-depends:       base, lens-indef, lens-simple
+  -- lens-vl
+  hs-source-dirs:      lens-example
+  default-language:    Haskell2010

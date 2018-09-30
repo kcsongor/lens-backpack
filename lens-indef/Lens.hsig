@@ -1,0 +1,9 @@
+{-# LANGUAGE TypeFamilies #-}
+signature Lens where
+
+data Lens s t a b
+
+view :: Lens s s a a -> s -> a
+modify :: Lens s t a b -> (a -> b) -> s -> t
+
+lens :: (s -> a) -> (s -> b -> t) -> Lens s t a b
